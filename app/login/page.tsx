@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/lib/api";
+import GoogleAuthButton from "@/components/GoogleAuthButton";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#000] text-zinc-200 flex flex-col items-center justify-center p-6 font-sans">
       <div className="w-full max-w-[360px] space-y-10">
-        
+
         {/* Brand */}
         <div className="flex flex-col items-center space-y-4">
           <div className="h-10 w-10 bg-gradient-to-tr from-zinc-700 to-zinc-200 rounded-full animate-pulse" />
@@ -86,6 +87,18 @@ export default function LoginPage() {
             {loading ? "Signing in..." : "Continue"}
           </button>
         </div>
+
+        {/* Divider */}
+        <div className="relative flex items-center">
+          <div className="flex-grow border-t border-zinc-900"></div>
+          <span className="mx-4 text-[10px] text-zinc-700 font-bold uppercase tracking-[0.3em]">
+            or
+          </span>
+          <div className="flex-grow border-t border-zinc-900"></div>
+        </div>
+
+        {/* Google Login */}
+        <GoogleAuthButton />
 
         {/* Footer */}
         <div className="pt-4 text-center text-xs text-zinc-600">
